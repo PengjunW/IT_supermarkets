@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Market</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="/static/js/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/js/user_nav.js"></script>
+
+</head>
+
+<body class="nav-md">
+<div id="app" class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+
+                <!-- insert nav title -->
+                <div id="nav_title_div">
+
+                </div>
+
+                <!-- space -->
+                <div class="clearfix"></div>
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="user_side_menu">
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top_nav_div">
+
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <div class="flex justify-content-center" align="center">
+
+                <!-- Jumbotron -->
+                <div class="jumbotron p-0">
+
+                    <!-- Card image -->
+                    <div class="view overlay rounded-top">
+
+                    </div>
+
+                    <!-- Card content -->
+                    <div class="card-body mb-3">
+                        <img src="/static/img/avatar.jpg" class="rounded-circle mx-auto d-block p-3 mt-5">
+                        <h1 class="display-4" v-text="username"></h1>
+
+                        <p class="m-4">Welcome and enjoy your shopping!</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="/user/productlist" role="button">Start Shopping</a>
+                        </p>
+
+                    </div>
+
+                </div>
+                <!-- Jumbotron -->
+            </div>
+        </div>
+        <!-- /page content -->
+
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="/static/css/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/static/css/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/static/css/vendors/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/static/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- DateJS -->
+<script src="/static/css/vendors/DateJS/build/date.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/static/js/custom.min.js"></script>
+<!-- main -->
+<script type="text/javascript" src="/static/js/main.js"></script>
+<script src="/static/js/profile.js"></script>
+</body>
+
+</html>

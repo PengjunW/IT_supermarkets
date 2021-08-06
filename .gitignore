@@ -1,0 +1,13 @@
+venv/
+.DS_Store
+.idea/
+bike_share_system/__pycache__/
+bikes/__pycache__/
+bikes/migrations/__pycache__/
+operations/__pycache__/
+operations/migrations/__pycache__/
+orders/__pycache__/
+orders/migrations/__pycache__/
+users/__pycache__/
+users/migrations/__pycache__/
+__pycache__/

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Market</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <!-- jQuery CDN -->
+    <script src="/static/js/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+
+                <!-- insert nav title -->
+                <div id="nav_title_div">
+
+                </div>
+
+                <!-- space -->
+                <div class="clearfix"></div>
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="login_side_menu">
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top_nav_div">
+
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <!-- Jumbotron -->
+            <div class="jumbotron p-0">
+
+                <!-- Card image -->
+                <div class="view overlay rounded-top">
+                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(77).jpg" class="img-fluid"
+                         alt="Sample image">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div id="app" class="card-body mb-3">
+
+                    <h1 class="display-4">Glasgow Online Market</h1>
+                    <p class="lead text-muted">Welcome and enjoy your shopping!</p>
+                    <hr class="my-4">
+
+                    <!-- user -->
+                    <div class="row mt-3 h6 text-muted">
+                        <div class="col-sm">
+                            Username
+                        </div>
+                    </div>
+                    <div class="row mt-2 h6 text-muted">
+                        <div class="col-sm">
+                            <input type="text" class="form-control w-50" v-model="userName"
+                                   aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+
+                    <!-- password -->
+                    <div class="row mt-2 h6 text-muted">
+                        <div class="col-sm">
+                            Password
+                        </div>
+                    </div>
+                    <div class="row mt-2 h6 text-muted">
+                        <div class="col-sm">
+                            <input type="password" class="form-control w-50" v-model="passWd" id="basic-url"
+                                   aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+
+                    <p class="lead mt-4">
+                        <el-button type="primary" @click="login" :loading="isLoading">login</el-button>
+                    </p>
+
+                </div>
+
+            </div>
+            <!-- Jumbotron -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/static/css/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/static/css/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/static/css/vendors/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/static/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- DateJS -->
+<script src="/static/css/vendors/DateJS/build/date.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/static/js/custom.min.js"></script>
+<script src="/static/js/index.js"></script>
+<script src="/static/js/login.js"></script>
+
+</body>
+
+</html>

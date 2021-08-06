@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- import CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.js"></script>
+		<script src="/static/js/vue-google-maps.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+		<!-- import JavaScript -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+	</head>
+	<body>
+		<body>
+			<div id="root">
+				<gmap-map :center="center" :zoom="15" style="width: 100%; height: 450px;">
+					<gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
+					</gmap-info-window>
+					<gmap-marker :draggable=false :key="i" v-for="(m,i) in positions" :position="{'lat':m.lat,'lng':m.lng}" :icon="{url:'/static/img/b'+m.status+'.gif',opts:{imageSize:{width:30,height:60}}}"
+					 :clickable="true" @click="toggleInfoWindow(m,i)"></gmap-marker>
+				</gmap-map>
+			</div>
+			<script src="/static/js/map.js"></script>
+		</body>
+
+</html>

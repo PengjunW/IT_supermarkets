@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>UofG BikeShare</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="/static/js/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="/static/js/admin_nav.js"></script>
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+
+                <!-- insert nav title -->
+                <div id="nav_title_div">
+
+                </div>
+
+                <!-- space -->
+                <div class="clearfix"></div>
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="admin_side_menu">
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top_nav_div">
+
+        </div>
+
+        <!-- page content -->
+        <div id="app" class="right_col" role="main">
+
+            <div class="ml-3 mr-3">
+                <div class="page-title">
+                    <div class="title_left mb-3">
+                        <h3 class="display-4">Dashboard</h3>
+
+                    </div>
+                </div>
+                <el-divider></el-divider>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div id="bar1" style="width:300px; height:300px;"></div>
+                    </div>
+
+                    <div class="col-md-6 ">
+
+                        <div id="bar2" style="width:300px; height:300px;"></div>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+
+
+                    <div class="row">
+                        <div class="col-md-6   ">
+                            <div id="bar3" style="width:300px; height:300px;"></div>
+                        </div>
+
+                        <div class="col-md-6   ">
+
+                            <div id="bar4" style="width:300px; height:300px;"></div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                        <el-divider></el-divider>
+
+                        <div class="row">
+                            <div class="col-md-4">
+
+
+                                <div id="bar5" style="width:300px; height:300px;"></div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div id="bar6" style="width:300px; height:300px;"></div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div id="bar7" style="width:300px; height:300px;"></div>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+
+                        </div>
+                    </div>
+                    <!-- /page content -->
+                </div>
+            </div>
+
+            <script>
+				new Vue({
+					el: "#app"
+				});
+				var chart1 = echarts.init(document.getElementById('bar1'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart2 = echarts.init(document.getElementById('bar2'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart3 = echarts.init(document.getElementById('bar3'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart4 = echarts.init(document.getElementById('bar4'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart5 = echarts.init(document.getElementById('bar5'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart6 = echarts.init(document.getElementById('bar6'), 'white', {
+					renderer: 'canvas'
+				});
+				var chart7 = echarts.init(document.getElementById('bar7'), 'white', {
+					renderer: 'canvas'
+				});
+
+
+
+
+
+				$(
+					function() {
+						fetchData(chart1, chart2, chart3, chart4, chart5, chart6,chart7);
+					}
+				);
+
+				function fetchData() {
+					$.ajax({
+						type: "GET",
+						url: "/echart/user_number/",
+						dataType: 'json',
+						success: function(result) {
+							chart1.setOption(result.data);
+						}
+					});
+					$.ajax({
+						type: "GET",
+						url: "/echart/goods_number/",
+						dataType: 'json',
+						success: function(result) {
+							chart2.setOption(result.data);
+						}
+					});
+					$.ajax({
+						type: "GET",
+						url: "/echart/day_order/",
+						dataType: 'json',
+						success: function(result) {
+							chart3.setOption(result.data);
+						}
+					});
+					$.ajax({
+						type: "GET",
+						url: "/echart/season_order/",
+						dataType: 'json',
+						success: function(result) {
+							chart4.setOption(result.data);
+						}
+					});
+					$.ajax({
+						type: "GET",
+						url: "/echart/day_user/",
+						dataType: 'json',
+						success: function(result) {
+							chart5.setOption(result.data);
+						}
+					});
+
+					$.ajax({
+						type: "GET",
+						url: "/echart/order_number/",
+						dataType: 'json',
+						success: function(result) {
+							chart6.setOption(result.data);
+						}
+					});
+
+					$.ajax({
+						type: "GET",
+						url: "/echart/season_user/",
+						dataType: 'json',
+						success: function(result) {
+							chart7.setOption(result.data);
+						}
+					});
+
+
+
+
+
+
+				}
+
+
+            </script>
+
+
+            <!-- jQuery -->
+            <script src="/static/css/vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="/static/css/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- FastClick -->
+            <script src="/static/css/vendors/fastclick/lib/fastclick.js"></script>
+            <!-- bootstrap-progressbar -->
+            <script src="/static/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- DateJS -->
+            <script src="/static/css/vendors/DateJS/build/date.js"></script>
+
+            <!-- Custom Theme Scripts -->
+            <script src="/static/js/custom.min.js"></script>
+            <script src="/static/js/admin_jwt.js"></script>
+
+</body>
+
+</html>

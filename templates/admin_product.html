@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Market</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="/static/js/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/js/admin_nav.js"></script>
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+
+                <!-- insert nav title -->
+                <div id="nav_title_div">
+
+                </div>
+
+                <!-- space -->
+                <div class="clearfix"></div>
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="admin_side_menu">
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top_nav_div">
+
+        </div>
+
+        <!-- page content -->
+        <div id='app' class="right_col" role="main">
+
+            <div class="ml-3 mr-3">
+                <div class="page-title">
+                    <div class="title_left mb-3">
+                        <h3 class="display-4">Product Management</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <table id="datatable-checkbox" class="table bulk_action mt-4" style="width:100%">
+                    <thead>
+                    <tr class="h6">
+                        <th>Good Name</th>
+                        <th>Price</th>
+                        <th>Inventory number</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="item in table">
+                        <td v-text="item.goods_name"></td>
+                        <td v-text="item.price"></td>
+                        <td v-text="item.inventory_num"></td>
+                        <td v-if="item.status==1">For Sale</td>
+                        <td v-else-if="item.status==2">On Sale</td>
+                        <td v-else-if="item.status==3">Out of Stock</td>
+                        <td v-else-if="item.status==4">Prepare to Sale</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- /page content -->
+
+</div>
+</div>
+
+
+<!-- jQuery -->
+<script src="/static/css/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/static/css/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/static/css/vendors/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/static/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- DateJS -->
+<script src="/static/css/vendors/DateJS/build/date.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/static/js/custom.min.js"></script>
+
+<!-- Admin Tool JS -->
+<script src="/static/js/admin.js"></script>
+<script src="/static/js/admin_product.js"></script>
+<script src="/static/js/admin_jwt.js"></script>
+
+</body>
+
+</html>

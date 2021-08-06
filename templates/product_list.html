@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Market</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="/static/js/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="/static/js/user_nav.js"></script>
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+
+                <!-- insert nav title -->
+                <div id="nav_title_div">
+
+                </div>
+
+                <!-- space -->
+                <div class="clearfix"></div>
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="user_side_menu">
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top_nav_div">
+
+        </div>
+
+        <!-- page content -->
+        <div id='order' class="right_col" role="main">
+
+            <div class="ml-3 mr-3">
+                <div class="page-title">
+                    <div class="title_left mb-3">
+                        <h3 class="display-4">Product List</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <el-table
+                        :data="table.filter(data => !search || data.goods_id.toString().toLowerCase().includes(search.toLowerCase()))"
+                        style="width: 100%">
+                    <el-table-column label="" prop="status">
+                        <template slot-scope="scope">
+                            <el-image
+                                    v-if="scope.$index==0"
+                                    style="width: 100px; height: 100px"
+                                    :src="url1"
+                                    :fit="fit"></el-image>
+                            <el-image
+                                    v-else-if="scope.$index==1"
+                                    style="width: 100px; height: 100px"
+                                    :src="url2"
+                                    :fit="fit"></el-image>
+                            <el-image
+                                    v-else-if="scope.$index==2"
+                                    style="width: 100px; height: 100px"
+                                    :src="url3"
+                                    :fit="fit"></el-image>
+                            <el-image
+                                    v-else-if="scope.$index==3"
+                                    style="width: 100px; height: 100px"
+                                    :src="url4"
+                                    :fit="fit"></el-image>
+                            <el-image
+                                    v-else-if="scope.$index==4"
+                                    style="width: 100px; height: 100px"
+                                    :src="url5"
+                                    :fit="fit"></el-image>
+                            <el-image
+                                    v-else-if="scope.$index==5"
+                                    style="width: 100px; height: 100px"
+                                    :src="url6"
+                                    :fit="fit"></el-image>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="Product" prop="goods_name" sortable>
+                    </el-table-column>
+                    <el-table-column label="Price" prop="price" sortable>
+                    </el-table-column>
+                    <el-table-column label="Inventory" prop="inventory_num">
+                    </el-table-column>
+                    <el-table-column label="Description" prop="goods_brief_description">
+                    </el-table-column>
+                    <el-table-column label="Item Number" prop="item_number" sortable>
+                        <el-input-number size="mini" v-model="num" @change="handleChange" :min="1"
+                                         :max="10"></el-input-number>
+                    </el-table-column>
+                    <el-table-column label="Status" prop="status" sortable>
+                        <template slot-scope="scope">
+                            <el-button type="success" disabled v-if="scope.row.status==1">On Sale</el-button>
+                            <el-button type="warning" disabled v-else-if="scope.row.status==2">For Sale</el-button>
+                        </template>
+                    </el-table-column>
+                    <el-table-column align="right">
+                        <template slot="header" slot-scope="scope">
+                            <el-input v-model="search" size="mini" placeholder="Enter the good id"/>
+                        </template>
+                        <template slot-scope="scope">
+                            <el-button type="danger" @click="addShoppingCart(scope.row)">Add Cart</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- /page content -->
+
+</div>
+</div>
+
+
+<!-- jQuery -->
+<script src="/static/css/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/static/css/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/static/css/vendors/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/static/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- DateJS -->
+<script src="/static/css/vendors/DateJS/build/date.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/static/js/custom.min.js"></script>
+<!-- main -->
+<script type="text/javascript" src="/static/js/main.js"></script>
+<script type="text/javascript" src="/static/js/products.js"></script>
+
+</body>
+
+</html>
